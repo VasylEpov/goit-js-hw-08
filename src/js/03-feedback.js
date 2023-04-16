@@ -12,6 +12,15 @@ const formInputs = {
 
 formInputs.form.addEventListener('submit', onFormSubmit);
 formInputs.form.addEventListener('input', throttle(onFormInput, 500));
+document.addEventListener('DOMContentLoaded', () => {
+  if (formState.email) {
+    formInputs.emailInput.value = formState.email;
+  }
+
+  if (formState.message) {
+    formInputs.messageInput.value = formState.message;
+  }
+});
 
 function updateFormData() {
   formState.email = formInputs.emailInput.value;
